@@ -15,3 +15,9 @@ chmod a+x build.sh
 ```
 
 This creates a ```dist/``` folder that will includes the installable for different platforms.
+
+## This is how it looks on MacOS
+
+<p align="left">
+  <img src="screenshots/desktop_screenshot.png" width="100%"/>
+</p>
