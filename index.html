@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>EXIF Scrubber</title>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';">
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; padding: 24px; }
+      h1 { margin-top: 0; }
+      .row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+      .dropzone {
+        border: 2px dashed #bbb; border-radius: 8px; padding: 32px; text-align: center; margin-top: 16px;
+        transition: border-color .2s ease, background .2s ease;
+      }
+      .dropzone.dragover { border-color: #333; background: #f7f7f7; }
+      .controls { margin-top: 12px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+      .files { margin-top: 12px; max-height: 180px; overflow: auto; padding: 8px; border: 1px solid #eee; border-radius: 6px; }
+      .file { font-size: 13px; padding: 4px 0; border-bottom: 1px dashed #eee; }
+      .muted { color: #666; font-size: 13px; }
+      button { padding: 8px 14px; border: 1px solid #ddd; border-radius: 6px; background: #fff; cursor: pointer; }
+      button.primary { background: #111; color: #fff; border-color: #111; }
+      .status { margin-top: 12px; font-size: 14px; }
+      .result-ok { color: #0a7a20; }
+      .result-err { color: #c21f1f; }
+      label { display: inline-flex; align-items: center; gap: 6px; }
+      input[type="text"] { width: 420px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; }
+      @media (max-width: 560px) { input[type="text"] { width: 100%; } }
+    </style>
+  </head>
+  <body>
+    <h1>EXIF Scrubber (UUID Renamer)</h1>
+    <p class="muted">
+      Drop files below. We’ll remove embedded metadata (EXIF/XMP/IPTC, etc.) and save them with UUID filenames.
+    </p>
+
+    <div class="row controls">
+      <button id="btnPickDir">Choose output folder…</button>
+      <input id="outputDir" type="text" placeholder="(optional) Output folder path" readonly />
+      <label><input id="overwrite" type="checkbox" /> Overwrite originals (and rename in place)</label>
+    </div>
+
+    <div id="dropzone" class="dropzone">
+      <strong>Drag & drop files here</strong><br />
+      <span class="muted">or drag from your file manager onto this window</span>
+    </div>
+
+    <div class="controls">
+      <button id="btnClear">Clear list</button>
+      <button id="btnProcess" class="primary">Clean & Rename</button>
+    </div>
+
+    <div id="fileList" class="files" hidden></div>
+    <div id="status" class="status"></div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

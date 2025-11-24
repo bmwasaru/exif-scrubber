@@ -1,0 +1,52 @@
+{
+  "name": "exif-scrubber",
+  "version": "1.0.0",
+  "description": "Drag & drop EXIF scrubber",
+  "main": "main.js",
+  "author": "Britone",
+  "license": "MIT",
+  "email": "bmwasaru@gmail.com",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder -mwl"
+  },
+  "dependencies": {
+    "exiftool-vendored": "^33.2.0"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "electron": "^39.2.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "xyz.britone.exifscrubber",
+    "productName": "EXIF Scrubber",
+    "files": [
+      "**/*",
+      "!**/*.map"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "linux": {
+      "category": "Utility",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "directories": {
+      "buildResources": "build"
+    }
+  }
+}
