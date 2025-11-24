@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Drag & drop EXIF scrubber",
   "main": "main.js",
-  "author": "Britone",
+  "author": "Britone <bmwasaru@gmail.com>",
   "license": "MIT",
   "email": "bmwasaru@gmail.com",
   "scripts": {
@@ -15,8 +15,8 @@
   },
   "keywords": [],
   "devDependencies": {
-    "electron": "^39.2.2",
-    "electron-builder": "^26.0.12"
+    "electron": "^31.0.0",
+    "electron-builder": "^25.0.0"
   },
   "build": {
     "appId": "xyz.britone.exifscrubber",
@@ -48,5 +48,13 @@
     "directories": {
       "buildResources": "build"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmwasaru/exif-scrubber.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bmwasaru/exif-scrubber/issues"
+  },
+  "homepage": "https://github.com/bmwasaru/exif-scrubber#readme"
 }
